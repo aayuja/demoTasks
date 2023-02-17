@@ -1,0 +1,11 @@
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/controller/StudentController.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/service/JwtUtil.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/model/Student.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/StudentApplication.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/config/TokenResponse.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/service/StudentServiceImpl.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/config/CustomAuthAccessPoint.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/service/JwtFilter.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/repo/StudentRepo.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/config/SecurityConfig.java
+/home/ayuza/Downloads/student/src/main/java/com/system/StudentSystemApplication/service/StudentServicee.java
