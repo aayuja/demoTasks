@@ -22,10 +22,10 @@ Optional<User> findByPhoneNo(String phoneNo);
 @Query("{email: $0}")
 Optional<User> findByEmail(String email);
 
-@Query("{_id: $0}")
-User getById(String id);
+//@Query("{_id: $0}")
+//User getById(String _id);
 
-@Query("{password: $0, _id: $1}")
-boolean existsByPasswordAndId(String password, String _id);
+//@Query("{password: $0, _id: $1}")
+//boolean existsByPasswordAndId(String password, String _id);
     
 }
