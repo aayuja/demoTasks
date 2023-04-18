@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Question Paper</title>
+</head>
+ <body>  
+ <h3>											Question Paper</h3>
+  <p>Note:All questions are compulsory</p>     
+ <form th:action="@{/homePage}" method="POST" th:object="${as}">
+
+    <table>
+     <tbody >
+     <th:block th:each = "qp :${questionPaper}">
+		<tr >
+	      <td>
+	      	<label> Question: </label> <span th:text="${qp?.question}"></span>
+	      		<br/>
+	      		<label>Options:</label>
+	      	  <select id="answers" name="answers" th:object="${questionPaper}"  >
+			    <option th:value="${qp?.option1}"  th:text="${qp?.option1}"></option>
+			    <option th:value="${qp?.option2}"  th:text="${qp?.option2}"></option>
+			    <option th:value="${qp?.option3}"  th:text="${qp?.option3}"></option>
+			    <option th:value="${qp?.option4}"  th:text="${qp?.option4}"></option>
+
+  				</select>
+  			</td>
+       </tr>
+       </th:block>
+      </tbody>
+</table>
+ <input type="submit" value="Save" />
+ </form>
+</body>

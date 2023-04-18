@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Class List</title>
+</head>
+ <body>
+ <div align="center">
+ <br>
+  <h1> ENTER DETAILS </h1>
+    <br>
+    
+    <form th:action="@{/choosingClass}" method="POST" th:object="${clasSub}" >
+    <table>
+    <tr>
+ 
+    <td>
+       CLASS
+    </td>
+    <td>
+       <select name="Choose class"  th:field="*{clas_id}">
+       <option th:each="cl :${classList}"
+								th:text="${cl?.clas}" th:value="${cl?._id}">
+       </select>
+    </td>
+    </tr>
+    
+
+    	 <tr>
+ 
+    <td>
+       SUBJECT
+    </td>
+    <td>
+       <select name="Choose subject" th:field="*{subjec_id}">
+       <option th:each="sl :${subjectList}"
+								th:text="${sl?.subject_Name}" th:value="${sl._id}">
+       </select>
+    </td>
+        
+    </tr>
+    </table>
+    
+    <input type="submit" value="Save" />
+    
+ </form>
+  
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
