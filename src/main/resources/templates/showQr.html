@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Qr Data</title>
+	<style>
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			flex-direction: column;
+
+		}
+		.textValue{
+		margin: -35px;
+	}
+	.download{
+				margin: 10px;
+
+	}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<img th:src="${qrCode}" />
+		<p class="textValue" th:text='${textValue}'></p>
+		<a th:download="${textValue}" th:href="${qrCode}" class="download" style="margin:60px";>
+		<button style="color: blueviolet;";>Download</button>
+		</a>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Multiple QrCodes</title>
+	<style>
+		.data {
+			display: flex;
+			border-radius: 30px;
+			border: solid black 1px;
+			height: 500px;
+			width: 600px;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="data">
+			<form action="/qrShowMultiple" method="POST" style="width: 500px; text-align: center">
+				<label>Text</label>
+				<input type="text" placeholder="Enter your Text" class="required" name='text' id="text-box" /><br><br>
+				<label>Series</label>
+				<input type="number" placeholder="Enter no of series" class="required" name='number' id="series-number" /> <br><br>
+				<label>Width</label>
+				<input type="text" max="30" placeholder="Enter width for QrCodes" class="required" name='width' /><br><br>
+				<label>Height</label>
+				<input type="text" max="30" placeholder="Enter height for QrCodes" class="required" name='height' />
+				<br><br>
+				<label>Count</label>
+				<input id="qr_count" name="qr_count" type="number" placeholder="Enter number of QrCodes" /><br><br>
+				<label>Email</label>
+				<input id="email" name="email" type="text" placeholder="Enter email to send qr" /><br><br>
+				<input type="hidden" name="qrData" id="qrData">
+				<div id="dynamic_fields"></div>
+				<input type="button" value="Reset" id="reset" />
+				<input type="submit" value="Submit" />
+		</div>
+	</div>
+	</form>
+</body>
+<script>
+	const qrCodesCount = document.getElementById('qr_count');
+	qrCodesCount.addEventListener('input', (event) => {
+		const textEntered = document.getElementById('text-box').value;
+		const seriesNumber = Number(document.getElementById('series-number').value);
+		console.log(event.target.value);
+		const count = event.target.value;
+		let dynamicFields = document.getElementById('dynamic_fields');
+		let qrData = "";
+		dynamicFields.innerHTML = '';
+		for (let i = 0; i < count; i++) {
+			dynamicFields.innerHTML += `<input onInput="onInputEvent()" placeholder="enter value" id="qr${i}"name="qr${i}" value="${textEntered + (seriesNumber + i)}" />`;
+			qrData += `${textEntered + (seriesNumber + i)},`;
+		}
+		document.getElementById('qrData').value = qrData;
+	})
+	const resetButton = document.getElementById('reset');
+	resetButton.addEventListener('click', (event) => {
+		location.reload();
+	})
+	const onInputEvent = () => {
+		let qrData = "";
+		let count = document.getElementById('qr_count').value;
+		for (let i = 0; i < count; i++) {
+			let data = document.getElementById("qr" + i);
+			qrData += data.value + ",";
+		}
+		document.getElementById('qrData').value = qrData;
+	}
+</script>
+
+</html>

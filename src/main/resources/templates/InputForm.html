@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>QrCode</title>
+	<style>
+		.data {
+			display: flex;
+			border-radius: 30px;
+			border: solid black 1px;
+			height: 500px;
+			width: 600px;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="data">
+			<form action="/qrShow" method="POST">
+				<label>Text</label>
+				<input type="text" placeholder="Enter Your Text" class="required" name='codeText' /> <br><br>
+				<label>Width</label>
+				<input type="number" max="30" placeholder="Enter width of QR" class="required" name='width' /> <br><br>
+				<label>Height</label>
+				<input type="number"  max="30" placeholder="Enter height of QR" class="required" name='height' /> <br><br>
+				<input type="button" value="Reset" id="reset" />
+				<input type="submit" value="Submit" />
+			</form>
+		</div>
+	</div>
+</body>
+<script>
+	const resetButton = document.getElementById('reset');
+	resetButton.addEventListener('click', (event) => {
+		location.reload();
+	})
+</script>
+</html>
